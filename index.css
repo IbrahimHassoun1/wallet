@@ -65,7 +65,13 @@ nav i:hover +.dropdown-menu{
 nav ul{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--tertiary-color);
+    gap: 1rem;
+}
+nav ul li:hover{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
     gap: 1rem;
 }
 .dropdown-menu li{
