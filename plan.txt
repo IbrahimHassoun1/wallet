@@ -1,0 +1,25 @@
+for user:
+Account Creation: Users must be able to register using email, phone number, or social logins.
+Identity Verification: Implement identity checks (e.g., uploading ID documents, automatic verification APIs) to comply with regulatory requirements.
+Profile Management: Users should have access to view and update personal information (name, address, contact info).
+Account Limits: Define daily/weekly/monthly transaction limits based on user tiers or verification levels.
+Deposit & Withdrawal: Clear, secure processes for loading funds into the wallet and withdrawing to external bank accounts/cards.
+Internal Transfers: Option for peer-to-peer (P2P) wallet transfers instantly or with minimal fees.
+Scheduled / Recurring Payments: Users can set up and manage future or recurring payments to merchants or other wallet holders.
+QR Code Payments: Provide a way for users to generate or scan QR codes for seamless in-store transactions.
+Real-Time Notifications: Send confirmations for deposits, withdrawals, transfers, and other key activities via email/push notifications.
+Transaction History & Statements: Users must be able to view or download detailed transaction history (filter by date, type, merchant, etc.).
+Live Chat & Ticketing: Offer real-time support or a ticketing system to handle inquiries and complaints.
+Self-Service Features: Empower users to reset passwords, update profiles, or block/unblock cards independently.
+
+
+
+for admin:
+System Logs: Collect detailed logs of system events, admin actions, API requests, etc.
+Analytics Dashboard: Provide insights on user growth, transaction volume, and others.
+Reporting Tools: Customizable reports for financial and operational data, with export options (CSV, PDF).
+
+additional:
+Developer-Friendly APIs: Provide well-documented APIs for third-party integrations (e.g., external apps, services).
+Automated Backups: Regular backups of databases and critical data, stored securely in multiple locations.
+Help Center & Knowledge Base: Provide FAQs, tutorials, and guides for users.
