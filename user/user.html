@@ -4,8 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>user</title>
+    <link rel="stylesheet" href="../index.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    hey this is user page
+    <!-- <nav>
+        <div class="container">
+            <h1>Bob wallet</h1>
+            <i class="fas fa-bars"></i>
+            <ul class="dropdown-menu">
+                <li>Home</li>
+                <li>Profile</li>
+                <li>logout</li>
+            </ul>
+        </div>
+    </nav> -->
+    <div id="main-page" class="main-page">
+        <div id="side-bar" class="side-bar">
+            <ul>
+                <li onclick="mountComponent(`profile`)">Profile info</li>
+                <li onclick="mountComponent(`wallet`)">Wallet info</li>
+                <li onclick="mountComponent(`cards`)">Cards</li>
+                <li onclick="mountComponent(`payments`)">Payments</li>
+                <li onclick="mountComponent(`support`)">Support</li>
+            </ul>
+            <button>Logout</button>
+        </div>
+        <div id="content-section" class="content-section">
+
+            <div id="profile" class="section">
+                <div class=" profile container ">
+                    <h1>Profile Details:</h1>
+                    <div  class="sub-profile-square">
+
+                        <form class="labels" onsubmit="">
+                            <label for="firstName">
+                                First Name: 
+                                <input id="firstName" type="text">
+                            </label>
+                            <label for="lastName">
+                                Last Name: 
+                                <input id="lastName" type="text">
+                            </label>
+                            <label for="phone">
+                                Phone Number: 
+                                <input id="phone" type="text">
+                            </label>
+                            <label for="email">
+                                Email: 
+                                <input id="email" type="email">
+                            </label>
+                            <label for="createdAt">
+                                Created at:
+                                <p>30/12/2024</p>
+                            </label>
+                            <label for="modfifiedAt">
+                                last modified
+                                <p>30/12/2024</p>
+                            </label>
+                            <label for="country">
+                                Country: 
+                                <input id="country" type="text">
+                            </label>
+                            <label for="city">
+                                City: 
+                                <input id="city" type="text">
+                            </label>
+                            <label for="street">
+                                Street: 
+                                <input id="street" type="text">
+                            </label>
+                            <div class="button"><button>Update</button></div>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="wallet" class="section">
+                <div class="wallet profile container ">
+                    <h1>wallet Details:</h1>
+                    <div  class="sub-profile-square">
+
+                        <form class="labels" onsubmit="">
+                            
+                            <label for="createdAt">
+                                Created at:
+                                <p>30/12/2024</p>
+                            </label>
+                            <label for="modfifiedAt">
+                                last modified
+                                <p>30/12/2024</p>
+                            </label>
+                            
+                            <div class="button"><button>Update</button></div>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="cards" class="section">cards</div>
+            <div id="payments" class="section">payments</div>
+            <div id="support" class="section">support</div>
+        </div>
+        <div class="not-icon-holder" onclick="toggleNotifications(`notifications`)">bell</div>
+        <div id="notifications" class="notifications section">
+            sdfsd
+        </div>
+    </div>
+    <!-- <footer class="">
+        <div class="container">
+            <div id="left" class="left">
+                <h1>Bob's wallet <span style="font-size: small;">Co.</span></h1>
+                <p>Your all-in-one digital wallet for secure, fast, and hassle-free transactions. Easily store, send, and receive money anytime, anywhere. Enjoy seamless payments, advanced security, and a smooth user experience designed for your convenience.</p>
+            </div>
+            <div id="center" class="center">
+                
+                <ul>
+                    <h1>Join us</h1>
+                    <li>fb</li>
+                    <li>linkedin</li>
+                    <li>insta</li>
+                </ul>
+            </div>
+            <div id="right" class="right">
+                <ul>
+                    <h1>Legal</h1>
+                    <li>Policy</li>
+                    <li>FAQ</li>
+                    <li>Disclaimer</li>
+                </ul>
+            </div>
+        </div>
+        
+    </footer> -->
+
+    <script src="user.js"></script>
 </body>
 </html>
