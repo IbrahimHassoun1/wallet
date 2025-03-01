@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body>
+    
+    <div class="main-page">
+        <div class="side-bar">
+            <ul>
+                <li onclick="mountComponent(`overview`)">Overview</li>
+                <li onclick="mountComponent(`analytics`)">Analytics</li>
+                <li onclick="mountComponent(`verification`)">Verifications</li>
+                <li onclick="mountComponent(`support`)">Support</li>
+                <button>Logout</button>
+            </ul>
+        </div>
+        <div class="content-section">
+            <div class="container adminContainer">
+                <div id="overview" class="section overview">
+                    <div class="upper-overview">
+                        <div class="left-upper-overview">
+                            <h1>Cards types</h1>
+                            <div>graph</div>
+                        </div>
+                        <div class="right-upper-overview">
+                            <h1>locations</h1>
+                            <div>graph</div>
+                        </div>
+                    </div>
+                    <div class="lower-overview">
+                        <!-- could paginate to transactions growth if we have time-->
+                        <h1>User growth</h1>
+                        <div>graph</div>
+                    </div>
+                </div>
+                <div id="analytics" class="section analytics" >
+                    <div class="container  analytics-template" onclick="collapseExpand(event)">
+                        <h1 class="head-of-analytics">Demographics <span>&dtrif;</span></h1>
+                        <div class="set-of-analytics">
+                            one set of analytics
+                        </div>
+                    </div>
+                    <div class="container  analytics-template" onclick="collapseExpand(event)">
+                        <h1 class="head-of-analytics">Activity <span>&dtrif;</span></h1>
+                        <div class="set-of-analytics">
+                            one set of analytics
+                        </div>
+                    </div>
+                    <div class="container  analytics-template" onclick="collapseExpand(event)">
+                        <h1 class="head-of-analytics">Demographics <span>&dtrif;</span></h1>
+                        <div class="set-of-analytics">
+                            one set of analytics
+                        </div>
+                    </div>
+                </div>
+                <div id="verification" class="section">Third template</div>
+                <div id="support" class="section">Support</div>
+            </div>
+        </div>
+    </div>
+    <script src="./admin.js"></script>
+</body>
+
+</html>

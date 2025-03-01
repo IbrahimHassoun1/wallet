@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -213,9 +214,16 @@
             </div>
 
         </div>
-        <div class="not-icon-holder notifications-detector"  onclick="toggleNotifications(`notifications`)"><i class="fas fa-bell"></i></div>
+        <div class="not-icon-holder notifications-detector"  onclick="toggleNotifications(`notifications-detector`)"><i class="fas fa-bell"></i></div>
+        
         <div id="" class="notifications notifications-detector hidden">
-            <div class="notifications-detector hidden x-button" onclick="toggleNotifications()"><i class="fas fa-arrow-right"></i>  <!-- Right arrow icon -->
+            <div class="notifications-detector hidden x-button" onclick="toggleNotifications(`notifications-detector`)"><i class="fas fa-arrow-right"></i>  <!-- Right arrow icon -->
+            </div>
+        </div>
+        <div class="msg-icon-holder message-detector"  onclick="toggleNotifications(`message-detector`)"><i class="fas fa-message"></i></div>
+        <div id="" class="notifications message-detector hidden">
+            <div class="notifications-detector hidden x-button" onclick="toggleNotifications(`message-detector`)">
+                <i class="fas fa-arrow-right"></i>  
             </div>
         </div>
     </div>

@@ -15,8 +15,8 @@ const mountComponent=(componentId)=>{
     const myComponent = document.getElementById(componentId)
     myComponent.classList.add("show")
 }
-const toggleNotifications=()=>{
-    const notifications = document.querySelectorAll('[class*="notifications-detector"]')
+const toggleNotifications=(cl)=>{
+    const notifications = document.querySelectorAll(`[class*="${cl}"]`)
     console.log(notifications)
     notifications.forEach(notification=>{
         notification.classList.toggle("hidden")
