@@ -8,6 +8,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -28,7 +30,7 @@
                 <li onclick="mountComponent(`profile`)">Profile info</li>
                 <li onclick="mountComponent(`wallet`)">Wallet info</li>
                 <li onclick="mountComponent(`cards`)">Cards</li>
-                <li onclick="mountComponent(`transactions`)">Payments</li>
+                <li onclick="mountComponent(`transactions`)">Transactions</li>
                 <li onclick="mountComponent(`support`)">Support</li>
             </ul>
             <button>Logout</button>
@@ -84,7 +86,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="wallet" class="section">
                 <div class="wallet profile container ">
                     <h1>Wallet Details:</h1>
@@ -156,26 +157,26 @@
                 <div class="wallet profile container ">
                     <h1>Transactions:</h1>
                     <div  class="sub-profile-square">
-                        <div class="cards-titles">
-                                <div>Brand/Image</div>
+                        <div class="transactions-titles">
+                                <div>Sender </div>
+                                <div>Receiver </div>
+                                <div>Transaction id</div>
+                                <div>Date</div>
                                 <div>Type</div>
-                                <div>id</div>
-                                <div>Balance</div>
-                                <p>show transactions</p>
+                                <div>Amount</div>
 
                         </div>
                         <div class="cards-holder">
-                            <div class="card-component " >
-                                <div class="details">
-                                <div>Master Card</div>
-                                <div>Debit</div>
+                            <div class="transaction-component" >
+                                
+                                <div>Bob</div>
+                                <div>Merl</div>
                                 <div>74937</div>
-                                <div>$390</div>
-                                <i class="fas fa-arrow-down"></i>
-                                </div>
-
-
-                            
+                                <div>1-1-2025</div>
+                                <div>P2P</div>
+                                <div>$150</div>
+                                
+                                
                             </div>
                             
                         </div>
@@ -184,11 +185,38 @@
                 </div>
                 
             </div>
-            <div id="support" class="section">support</div>
+            <div id="support" class="section">
+                <div class=" profile container ">
+                    <h1>Support:</h1>
+                    <div  class="sub-profile-square">
+
+                        <form class="labels" onsubmit="">
+                            <label for="category">
+                                Category: 
+                                <input id="category" name="category" type="text">
+                            </label>
+                            <label for="subject">
+                                Subject: 
+                                <input id="subject" name="subject" type="text">
+                            </label>
+                            <label for="">
+                                Transaction/Card id: 
+                                <input id=""name='id' type="text">
+                            </label>
+                            <textarea name="" id=""></textarea>
+                            <div class="button"><button>Submit</button></div>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="not-icon-holder" onclick="toggleNotifications(`notifications`)">bell</div>
-        <div id="notifications" class="notifications section">
-            sdfsd
+        <div class="not-icon-holder notifications-detector"  onclick="toggleNotifications(`notifications`)"><i class="fas fa-bell"></i></div>
+        <div id="" class="notifications notifications-detector hidden">
+            <div class="notifications-detector hidden x-button" onclick="toggleNotifications()"><i class="fas fa-arrow-right"></i>  <!-- Right arrow icon -->
+            </div>
         </div>
     </div>
     <!-- <footer class="">

@@ -16,8 +16,13 @@ const mountComponent=(componentId)=>{
     myComponent.classList.add("show")
 }
 const toggleNotifications=()=>{
-    const notifications = document.getElementById("notifications")
-    notifications.classList.toggle("section")
+    const notifications = document.querySelectorAll('[class*="notifications-detector"]')
+    console.log(notifications)
+    notifications.forEach(notification=>{
+        notification.classList.toggle("hidden")
+        console.log(notification)
+        })
+    
 }
 window.onload(document.querySelectorAll(".section").forEach(section=>section.classList.remove("show")))
 

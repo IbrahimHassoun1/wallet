@@ -309,13 +309,35 @@ footer .container ul{
 /*notifications section*/
 .not-icon-holder{
     cursor: pointer;
+    background-color: var(--primary-color);
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    
 }
-
+.hidden{
+    display: none;
+}
 .notifications{
     right: 0;
     height: 100vh;
     width: 22%;
     background-color: var(--primary-color);
+}
+.notifications .x-button{
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    opacity: 80%;
 }
 /*handling individual sections*/
 .profile{
@@ -432,7 +454,8 @@ footer .container ul{
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    
+    margin-bottom: 5vh;
+    border-bottom: 0.1vh solid var(--tertiary-color);
 }
 .card-component .details:hover{
     background-color: var(--tertiary-color);
@@ -480,6 +503,55 @@ footer .container ul{
 }
 
 
+/* transactions section */
+.transactions-titles{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 5vh;
+   
+    display: flex;
+    
+    align-items: center;
+    
+}
+.transactions-titles>*{
+    width: 16.6666%;
+}
+.transaction-component{
+    width: 95%;
+    background-color: var(--secondary-color);
+    text-align: start;
+    
+    border-radius: 1rem;
+    height: 5vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5vh;
+    border-bottom: 0.1vh solid var(--tertiary-color);
+}
+.transaction-component>*{
+    width:16.6666%;
+    text-align: center;
+    
+}
+.transaction-component:hover{
+    background-color: var(--tertiary-color);
+}
+
+/* support */
+.support .labels:nth-child(1){
+    background-color: red;
+}
+textarea{
+    width: 90%;
+    height: 60%;
+}
 
 
 
