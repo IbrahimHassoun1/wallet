@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../index.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <!-- <nav>
@@ -26,7 +28,7 @@
                 <li onclick="mountComponent(`profile`)">Profile info</li>
                 <li onclick="mountComponent(`wallet`)">Wallet info</li>
                 <li onclick="mountComponent(`cards`)">Cards</li>
-                <li onclick="mountComponent(`payments`)">Payments</li>
+                <li onclick="mountComponent(`transactions`)">Payments</li>
                 <li onclick="mountComponent(`support`)">Support</li>
             </ul>
             <button>Logout</button>
@@ -85,7 +87,7 @@
 
             <div id="wallet" class="section">
                 <div class="wallet profile container ">
-                    <h1>wallet Details:</h1>
+                    <h1>Wallet Details:</h1>
                     <div  class="sub-profile-square">
 
                         <form class="labels" onsubmit="">
@@ -102,12 +104,86 @@
                             <div class="button"><button>Update</button></div>
                         </form>
                         
-                        
                     </div>
                 </div>
             </div>
-            <div id="cards" class="section">cards</div>
-            <div id="payments" class="section">payments</div>
+            <div id="cards" class="section show">
+                <div class="wallet profile container ">
+                    <h1>Cards:</h1>
+                    <div  class="sub-profile-square">
+                        <div class="cards-titles">
+                                <div>Brand/Image</div>
+                                <div>Type</div>
+                                <div>id</div>
+                                <div>Balance</div>
+                                <p>show transactions</p>
+
+                        </div>
+                        <div class="cards-holder">
+                            <div class="card-component " onclick="detailCard(event)">
+                                <div class="details">
+                                <div>Master Card</div>
+                                <div>Debit</div>
+                                <div>74937</div>
+                                <div>$390</div>
+                                <i class="fas fa-arrow-down"></i>
+                                </div>
+
+                                <div class="transactions ">
+                                    <div class="transaction">
+                                        <p>12-1-2025</p>
+                                        <p>withdraw</p>
+                                        <p>2356</p>
+                                        <p>-290</p>
+                                        <p>s</p>
+                                    </div>
+                                    <div class="transaction">
+                                        
+                                    </div>
+                                    
+                                   
+                                </div>
+                               
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div id="transactions" class="section">
+                <div class="wallet profile container ">
+                    <h1>Transactions:</h1>
+                    <div  class="sub-profile-square">
+                        <div class="cards-titles">
+                                <div>Brand/Image</div>
+                                <div>Type</div>
+                                <div>id</div>
+                                <div>Balance</div>
+                                <p>show transactions</p>
+
+                        </div>
+                        <div class="cards-holder">
+                            <div class="card-component " >
+                                <div class="details">
+                                <div>Master Card</div>
+                                <div>Debit</div>
+                                <div>74937</div>
+                                <div>$390</div>
+                                <i class="fas fa-arrow-down"></i>
+                                </div>
+
+
+                            
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
             <div id="support" class="section">support</div>
         </div>
         <div class="not-icon-holder" onclick="toggleNotifications(`notifications`)">bell</div>
