@@ -20,6 +20,19 @@ if ($continue) {
             echo "addresses table created||\n";
 
         //creating wallet table
+        $sql = "CREATE TABLE IF NOT EXISTS wallets (
+            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            total_balance INT(11) default 0,
+            currency VARCHAR(50) NOT NULL,
+            created_at TIMESTAMP default CURRENT_TIMESTAMP
+            )
+        ";
+        if (!$conn->query($sql)) {
+            $continue = false;
+            echo "failed to create wallets table||";
+            die();
+        } else
+            echo "wallets table created||\n";
 
         //creating users table
         $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -35,8 +48,9 @@ if ($continue) {
             verification_date TIMESTAMP NULL DEFAULT NULL,
             address_id INT(11),
             wallet_id INT(11),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            -- don't forget to add foreign keys in the end
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (address_id) REFERENCES addresses(id),
+            FOREIGN KEY (wallet_id)  REFERENCES wallets(id)
         )
     ";
         if (!$conn->query($sql)) {
@@ -46,7 +60,42 @@ if ($continue) {
         } else
             echo "users table created||\n";
 
+        //creating cards table
+        $sql = "CREATE TABLE IF NOT EXISTS cards (
+                id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                balance INT(11) default 0,
+                card_type VARCHAR(20) not null,
+                brand VARCHAR(20) not null,
+                created_at TIMESTAMP default CURRENT_TIMESTAMP,
+                wallet_id INT(11),
+                FOREIGN KEY (wallet_id)  REFERENCES wallets(id)
+                )
+            ";
+        if (!$conn->query($sql)) {
+            $continue = false;
+            echo "failed to create cards table||";
+            die();
+        } else
+            echo "cards table created||\n";
 
+        //creating transactions table
+        $sql = "CREATE TABLE IF NOT EXISTS transactions (
+            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            amount INT(11) not null,
+            created_at TIMESTAMP default CURRENT_TIMESTAMP,
+            sender_id INT(11),
+            receiver_id INT(11),
+            FOREIGN KEY (sender_id)  REFERENCES cards(id),
+            FOREIGN KEY (receiver_id)  REFERENCES cards(id)
+
+            )
+        ";
+        if (!$conn->query($sql)) {
+            $continue = false;
+            echo "failed to create transactions table||";
+            die();
+        } else
+            echo "transactions table created||\n";
 
     } catch (Exception $e) {
         echo $e;
