@@ -35,13 +35,21 @@
                 </ul>
             </div>
             <div class="right-table">
-                <h1>Login</h1>
-                <form action="">
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
-                    <input type="email" placeholder="Email">
-                    <input type="number" placeholder="Phone Number">
-                    <button onclick="SubmitEvent">Login</button>
+                <h1>Sign Up</h1>
+                <form id="registerForm" method="POST">
+                    <input type="text" placeholder="First Name" name="first_name">
+                    <input type="text" placeholder="Last Name" name="last_name">
+                    <input type="text" placeholder="username" name="username">
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="text" placeholder="Phone Number" name="phone_number">
+                    <input type="password" placeholder="Password" name="pass">
+                    <select name="currency" id="">
+                        <option value="">Currency</option>
+                        <option value="dollar">Dollar</option>
+                        <option value="euro">Euro</option>
+                    </select>
+                    
+                    <button type="submit">Sign up</button>
                 </form>
             </div>
         </div>
@@ -73,5 +81,6 @@
         </div>
         
     </footer>
+    <Script src="./index.js"></Script>
 </body>
 </html>

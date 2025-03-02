@@ -17,7 +17,7 @@ if ($continue) {
         $conn->commit();
         //creating user seed
         $sql = "INSERT IGNORE INTO users (first_name, last_name, username, email, pass,address_id,wallet_id) 
-                            VALUES ('ibrahim', 'hassoun', 'bob123', 'ihassoun73@gmail.com', 'passExample',1,1)";
+                                    VALUES ('ibrahim', 'hassoun', 'bob123', 'ihassoun73@gmail.com', 'passExample',1,1)";
         $conn->query($sql);
         echo "user seed added successfully||\n";
         $conn->commit();

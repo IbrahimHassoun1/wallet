@@ -9,7 +9,8 @@ RewriteRule ^user/?$ /wallet/user/user.html [L]
 # Route /wallet/admin to /wallet/admin/admin.html
 RewriteRule ^admin/?$ /wallet/admin/admin.html [L]
 
-# For all other requests, route them to PHP for processing
+# Route all user requests to userRouter.php
+RewriteRule ^user/(.*)$ /wallet/server/user/userRouter.php?action=$1 [L,QSA]
 
 
 # Disable directory listing
