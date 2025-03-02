@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Route / to index.html
+RewriteRule ^$ /wallet/index.html [L]
+
+# Route /wallet/user to /wallet/user/user.html
+RewriteRule ^user/?$ /wallet/user/user.html [L]
+
+# Route /wallet/admin to /wallet/admin/admin.html
+RewriteRule ^admin/?$ /wallet/admin/admin.html [L]
+
+# For all other requests, route them to PHP for processing
+
+
+# Disable directory listing
+
