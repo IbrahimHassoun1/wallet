@@ -35,22 +35,37 @@
                 </ul>
             </div>
             <div class="right-table">
-                <h1>Sign Up</h1>
-                <form id="registerForm" method="POST">
-                    <input type="text" placeholder="First Name" name="first_name">
-                    <input type="text" placeholder="Last Name" name="last_name">
-                    <input type="text" placeholder="username" name="username">
-                    <input type="email" placeholder="Email" name="email">
-                    <input type="text" placeholder="Phone Number" name="phone_number">
-                    <input type="password" placeholder="Password" name="pass">
-                    <select name="currency" id="">
-                        <option value="">Currency</option>
-                        <option value="dollar">Dollar</option>
-                        <option value="euro">Euro</option>
-                    </select>
-                    
-                    <button type="submit">Sign up</button>
-                </form>
+                <div id="signup" class="section signup showAdmin" >
+                    <h1 class="">Sign Up</h1>
+                    <form id="registerForm" method="POST" autocomplete="off">
+                        <input type="text" placeholder="First Name" name="first_name" required>
+                        <input type="text" placeholder="Last Name" name="last_name" required>
+                        <input type="text" placeholder="username" name="username" required>
+                        <input type="email" placeholder="Email" name="email">
+                        <input type="text" placeholder="Phone Number" name="phone_number">
+                        <input type="password" placeholder="Password" name="pass" autocomplete="new-password" required>
+                        <select name="currency" id="" required>
+                            <option value="">Currency</option>
+                            <option value="dollar">Dollar</option>
+                            <option value="euro">Euro</option>
+                        </select>
+                        
+                        <button type="submit">Sign up</button>
+                    </form>
+                    <p>Already have an account?<span onclick="mountComponent('login')"> login</span></p>
+                </div>
+                <div id="login" class="section signup">
+                    <h1>Login</h1>
+                    <form id="loginForm" method="POST" autocomplete="off" c>
+                        
+                        <input type="text" placeholder="Email or phone number" id="identifier" name="identifier" required>
+                        <input type="password" placeholder="Password" name="pass" autocomplete="new-password" required>
+                        
+                        
+                        <button type="submit">Sign up</button>
+                    </form>
+                    <p>Don't have an account? <span onclick="mountComponent('signup')">Create Account</span></p>
+                </div>
             </div>
         </div>
         

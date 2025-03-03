@@ -97,6 +97,21 @@ if ($continue) {
         } else
             echo "transactions table created||\n";
 
+        //creating cards table
+        $sql = "CREATE TABLE IF NOT EXISTS my_sessions (
+            id INT(11) AUTO_INCREMENT PRIMARY KEY,
+            created_at TIMESTAMP default CURRENT_TIMESTAMP,
+            user_id INT(11),
+            FOREIGN KEY (user_id)  REFERENCES users(id)
+            )
+        ";
+        if (!$conn->query($sql)) {
+            $continue = false;
+            echo "failed to create cards table||";
+            die();
+        } else
+            echo "cards table created||\n";
+
     } catch (Exception $e) {
         echo $e;
     }

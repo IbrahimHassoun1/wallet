@@ -21,7 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // Begin transaction
         $conn->begin_transaction();
-
+        //make sure there is at least phone or email
+        if (empty($email) && empty($phone_number)) {
+            $response['status'] = 'error';
+            $response['message'] = "Enter email or phone number";
+            http_response_code(400); // Bad Request
+            throw new Exception("Enter email or phone number");
+        }
         // Make sure there is no account with this email or phone number
         $email_sql = "SELECT * FROM users WHERE email like '$email'";
         if ($conn->query($email_sql)->num_rows > 0) {

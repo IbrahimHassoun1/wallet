@@ -33,6 +33,16 @@ if ($continue) {
         $conn->query($sql);
         echo "card seed added successfully||\n";
         $conn->commit();
+        //creating sessions seed
+        $sql = "INSERT IGNORE INTO my_sessions (user_id) 
+                                    VALUES (1)";
+        $conn->query($sql);
+        if ($conn->query($sql))
+            echo "session seed added successfully||\n";
+        else
+            echo "session seed not added||\n" . $conn->error;
+
+        $conn->commit();
     } catch (Exception $e) {
         echo "failed to add";
         echo $e;
