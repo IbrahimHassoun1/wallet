@@ -74,7 +74,35 @@ window.onload(document.querySelectorAll(".section").forEach(section=>section.cla
 //handle sections
 //profile details
 document.getElementById("profile-button").addEventListener("click",function(){
-    
+    const session_id = localStorage.getItem("session_id");
+    const apiUrl = url + "/user/api/?action=getUserInfo";  
+
+    axios.post(apiUrl, { session_id }) 
+        .then(response => {
+            console.log(response.data) 
+            const profileForm=document.getElementById("profile-form")
+            //start filling inputs
+            let firstName = profileForm.querySelector('[name="firstName"]')
+            firstName.value=response.data.data.first_name
+            let lastName = profileForm.querySelector('[name="lastName"]')
+            lastName.value=response.data.data.last_name
+            let phone = profileForm.querySelector('[name="phone"]')
+            phone.value=response.data.data.phone
+            let email = profileForm.querySelector('[name="email"]')
+            email.value=response.data.data.email
+            let createdAt = profileForm.querySelector('[name="createdAt"]')
+            createdAt.innerHTML=response.data.data.created_at
+            //add last modified in the end
+            let country = profileForm.querySelector('[name="country"]')
+            country.value=response.data.address.country
+            let city = profileForm.querySelector('[name="city"]')
+            city.value=response.data.address.city
+            let street = profileForm.querySelector('[name="street"]')
+            street.value=response.data.address.street
+        })
+        .catch(error => {
+            console.error('Error:', error);  
+        });
 })
 
 
