@@ -152,5 +152,62 @@ const updateUser = function(e){
 }
 
 
+document.getElementById("cards-button").addEventListener("click",()=>{
+    console.log("you clicked cards")
+    console.log(user_id)
+    var wallet_id=1
+    axios.post(url + "/user/api/?action=getCards", {user_id}, {
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    })
+    .then(response => {
+        console.log(response.data.data); 
+        const cardsHolder = document.getElementById("cards-holder")
+        response.data.data.forEach(card=>{
+            const newComponent = document.createElement("div")
+            newComponent.classList.add("card-component")
+            newComponent.innerHTML=` 
+                                <div class="details">
+                                <div>${card.brand}</div>
+                                <div>${card.card_type}</div>
+                                <div>${card.id}</div>
+                                <div>${card.balance}</div>
+                                <i class="fas fa-arrow-down"></i>
+                                </div>
+
+                                <div class="transactions ">
+                                    <div class="transaction">
+                                        <p>12-1-2025</p>
+                                        <p>withdraw</p>
+                                        <p>2356</p>
+                                        <p>-290</p>
+                                        <p>s</p>
+                                    </div>
+                                    <div class="transaction">
+                                        
+                                    </div>
+                                    
+                                   
+                                </div>
+                               `
+        cardsHolder.append(newComponent)
+        })
+
+
+
+
+
+
+
+
+
+    })
+    .catch(error => {
+        console.error(error); 
+    });
+})
+
+
 
 
