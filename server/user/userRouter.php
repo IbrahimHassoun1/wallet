@@ -18,6 +18,10 @@ if (isset($_GET['action'])) {
             require './actionsControllers/getUserInfo.php';
             break;
         }
+        case "updateUserInfo": {
+            require './actionsControllers/updateUserInfo.php';
+            break;
+        }
 
         case "transaction": {
             require './transactionsControllers/transactionRouter.php';

@@ -108,12 +108,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $result = $conn->query($sql);
 
             if ($result) {
-                // Fetch the row
+
                 $row = $result->fetch_assoc();
                 $response["status"] = "success";
                 $response["message"] = "session created";
                 setcookie("session_id", $row["id"]);
-                $response["session_data"] = $row; // Include the last inserted row data
+                $response["session_data"] = $row;
                 $conn->commit();
                 echo json_encode($response);
             } else {

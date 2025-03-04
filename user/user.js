@@ -68,11 +68,27 @@ const toggleNotifications=(cl)=>{
     
 }
 window.onload(document.querySelectorAll(".section").forEach(section=>section.classList.remove("show")))
+//keep user_id stored for future operations
+var user_id=-1;
+window.onload=()=>{
+    if (localStorage.getItem("session_id")!=null){
+        const session_id = localStorage.getItem("session_id");
+    const apiUrl = url + "/user/api/?action=getUserInfo";  
 
-
+    axios.post(apiUrl, { session_id }) 
+        .then(response => {
+            console.log(response.data) 
+            user_id=response.data.data.id
+        })
+        .catch(error => {
+            console.error('Error:', error);  
+        });
+    }
+}
 
 //handle sections
 //profile details
+
 document.getElementById("profile-button").addEventListener("click",function(){
     const session_id = localStorage.getItem("session_id");
     const apiUrl = url + "/user/api/?action=getUserInfo";  
@@ -80,14 +96,15 @@ document.getElementById("profile-button").addEventListener("click",function(){
     axios.post(apiUrl, { session_id }) 
         .then(response => {
             console.log(response.data) 
+
             const profileForm=document.getElementById("profile-form")
             //start filling inputs
-            let firstName = profileForm.querySelector('[name="firstName"]')
-            firstName.value=response.data.data.first_name
-            let lastName = profileForm.querySelector('[name="lastName"]')
-            lastName.value=response.data.data.last_name
-            let phone = profileForm.querySelector('[name="phone"]')
-            phone.value=response.data.data.phone
+            let first_name = profileForm.querySelector('[name="first_name"]')
+            first_name.value=response.data.data.first_name
+            let last_name = profileForm.querySelector('[name="last_name"]')
+            last_name.value=response.data.data.last_name
+            let phone_number = profileForm.querySelector('[name="phone_number"]')
+            phone_number.value=response.data.data.phone_number
             let email = profileForm.querySelector('[name="email"]')
             email.value=response.data.data.email
             let createdAt = profileForm.querySelector('[name="createdAt"]')
@@ -104,6 +121,36 @@ document.getElementById("profile-button").addEventListener("click",function(){
             console.error('Error:', error);  
         });
 })
+const updateUser = function(e){
+    e.preventDefault()
+    const formElemet = document.getElementById("profile-form")
+    
+    const formData = new FormData(formElemet);  
+    const data = {};
+    
+    formData.forEach((value, key) => {
+        data[key] = value
+    });
+    data.id=user_id;
+    
+    const jsonData = JSON.stringify(data)
+
+    console.log(jsonData);
+    axios.post(url + "/user/api/?action=updateUserInfo", jsonData, {
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    })
+    .then(response => {
+        console.log(response); 
+    })
+    .catch(error => {
+        console.error(error); 
+    });
+
+    
+
+}
 
 
 
