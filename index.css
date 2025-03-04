@@ -398,6 +398,44 @@ footer .container ul{
     
 }
 /*handling individual sections*/
+.to-do-list{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.task{
+    background-color: var(--primary-color);
+    height: 35vh;
+    width: 17.5vw;
+    text-align: center;
+    color: var(--quaternary-color);
+    border: 0.01rem solid var(--tertiary-color);
+    border-radius: 1rem;
+   
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.flex{
+    display: flex;
+}
+.task button{
+    width: 70%;
+    border: none;
+    border-radius: 1rem ;
+    cursor: pointer;
+    background-color: var(--tertiary-color);
+    color: var(--quaternary-color);
+    height: 15%;
+}
+.task button:hover{
+    opacity: 85%;
+}
+@media (max-width:950px) {
+    .task{
+        width: 80%;
+    }
+}
 .profile{
     display: flex;
     flex-direction: column;

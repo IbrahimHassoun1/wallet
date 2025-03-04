@@ -1,3 +1,10 @@
+const url="http://localhost/wallet/"
+
+//written by deepseek r1
+//test
+function showCookie(){
+    
+}
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault();  
 
@@ -19,7 +26,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     this.appendChild(appended);  // Append it to the form
 
     // Send the form data via fetch
-    fetch("http://localhost/wallet/user/?action=register", {
+    fetch("http://localhost/wallet/user/api/?action=register", {
         method: "POST",
         body: formData
     })
@@ -34,7 +41,9 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
         if (data.status === "success") {
             newMessage.textContent = "Account created successfully"; 
-            newMessage.classList.add('txt-green');  
+            newMessage.classList.add('txt-green');
+            window.location.href = url+"user/"
+
         } else {
             newMessage.textContent = data.message;  
             newMessage.classList.add('txt-red');  
@@ -59,9 +68,10 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
 document.getElementById("loginForm").addEventListener("submit", (event) => {
     event.preventDefault(); 
-
+    
     const form = event.target;  
-    const identifier = new FormData(form).get("identifier");  
+    const formdata=new FormData(form)
+    const identifier = formdata.get("identifier");  
 
     const appended = document.createElement('h4');
     const existingMessage = form.querySelector("h4");
@@ -84,17 +94,66 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     function isPhone(input) {
         return /^\d{8,15}$/.test(input); // Adjust the phone regex as needed
     }
+    
+
+    if(isEmail(identifier)){
+        formdata.delete("identifier")
+        formdata.append("email",identifier)
+    }
+    console.log("After:", Array.from(formdata.entries()));
+    
 
     // Validate login input
-    if (isEmail(identifier)) {
-        appended.textContent = "Logging in with email...";
-        
-    } else if (isPhone(identifier)) {
-        appended.textContent = "Logging in with phone...";
-        
-    } else {
+    if(!isEmail(identifier) && !isPhone(identifier)) {
         appended.textContent = "The input is neither an email nor a phone number";
+        
+        form.appendChild(appended);  // Append message after the form
+        
+        return;
     }
+    //send request
+    fetch("http://localhost/wallet/user/api/?action=login", {
+        method: "POST",
+        body: formdata
+    })
+    .then(response => response.json())  
+    .then(data => {
+        
+        appended.remove();
+
+        const newMessage = document.createElement("h4")
+        newMessage.style.textAlign = 'center'
+        newMessage.style.fontWeight = '100'
+
+        if (data.status === "success") {
+            newMessage.textContent = "Account created successfully"; 
+            newMessage.classList.add('txt-green') 
+            console.log("login successful")
+            localStorage.setItem("session_id",data.session_data.id)
+            window.location.href = url+"user/"
+            
+            
+        } else {
+            newMessage.textContent = data.message 
+            newMessage.classList.add('txt-red');  
+            console.log("failed to login")
+        }
+
+        this.appendChild(newMessage);  // Append the new message after the form
+    })
+    .catch(error => {
+        console.error("Error:", error);  
+        // If there's an error, remove the "Please wait" message and display the error
+        appended.remove();
+
+        const errorMessage = document.createElement("h4");
+        errorMessage.textContent = "Something went wrong. Please try again later.";  
+        errorMessage.classList.add('txt-red'); 
+        errorMessage.style.textAlign = 'center';
+        errorMessage.style.fontWeight = '100';
+        this.appendChild(errorMessage);  // Append the error message
+    });
+    
 
     form.appendChild(appended);  // Append message after the form
 });

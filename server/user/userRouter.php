@@ -10,10 +10,20 @@ if (isset($_GET['action'])) {
             require './accountControllers/loginUser.php';
             break;
         }
+        case "checkVerified": {
+            require './actionsControllers/checkVerified.php';
+            break;
+        }
+        case "getUserInfo": {
+            require './actionsControllers/getUserInfo.php';
+            break;
+        }
+
         case "transaction": {
             require './transactionsControllers/transactionRouter.php';
             break;
         }
+
     }
 
 }

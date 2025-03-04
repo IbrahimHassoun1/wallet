@@ -11,9 +11,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+   
     <!-- <nav>
         <div class="container">
             <h1>Bob wallet</h1>
@@ -28,7 +29,7 @@
     <div id="main-page" class="main-page">
         <div id="side-bar" class="side-bar">
             <ul>
-                <li onclick="mountComponent(`profile`)">Profile info</li>
+                <li id="profile-button" onclick="mountComponent(`profile`)">Profile info</li>
                 <li onclick="mountComponent(`wallet`)">Wallet info</li>
                 <li onclick="mountComponent(`cards`)">Cards</li>
                 <li onclick="mountComponent(`transactions`)">Transactions</li>
@@ -37,7 +38,16 @@
             <button>Logout</button>
         </div>
         <div id="content-section" class="content-section">
-
+            <div id='to-do-list' class='container to-do-list'>
+                <div id="is_verified" class="task flex">
+                    <h1>Verify your account</h1>
+                    <button>Verify</button>
+                </div>
+                <div id="add_card" class="task">
+                    <h1>Add Your First Card</h1>
+                    <button>Add</button>
+                </div>
+            </div>
             <div id="profile" class="section">
                 <div class=" profile container ">
                     <h1>Profile Details:</h1>
@@ -109,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div id="cards" class="section show">
+            <div id="cards" class="section">
                 <div class="wallet profile container ">
                     <h1>Cards:</h1>
                     <div  class="sub-profile-square">
@@ -254,6 +264,6 @@
         
     </footer> -->
 
-    <script src="user.js"></script>
+    <script src="./user.js"></script>
 </body>
 </html>
