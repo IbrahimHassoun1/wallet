@@ -53,26 +53,26 @@
                     <h1>Profile Details:</h1>
                     <div  class="sub-profile-square">
 
-                        <form class="labels" onsubmit="">
-                            <label for="firstName">
+                        <form id="profile-form" class="labels" onsubmit="updateUser(event)">
+                            <label for="first_name">
                                 First Name: 
-                                <input id="firstName" type="text">
+                                <input id="first_name" name="first_name" type="text">
                             </label>
-                            <label for="lastName">
+                            <label for="last_name">
                                 Last Name: 
-                                <input id="lastName" type="text">
+                                <input id="last_name" name="last_name" type="text">
                             </label>
-                            <label for="phone">
+                            <label for="phone_number">
                                 Phone Number: 
-                                <input id="phone" type="text">
+                                <input id="phone_number" name="phone_number" type="text">
                             </label>
                             <label for="email">
                                 Email: 
-                                <input id="email" type="email">
+                                <input id="email" name="email" type="email">
                             </label>
                             <label for="createdAt">
                                 Created at:
-                                <p>30/12/2024</p>
+                                <p name="createdAt">30/12/2024</p>
                             </label>
                             <label for="modfifiedAt">
                                 last modified
@@ -80,15 +80,15 @@
                             </label>
                             <label for="country">
                                 Country: 
-                                <input id="country" type="text">
+                                <input id="country" name="country" type="text">
                             </label>
                             <label for="city">
                                 City: 
-                                <input id="city" type="text">
+                                <input id="city" name="city" type="text">
                             </label>
                             <label for="street">
                                 Street: 
-                                <input id="street" type="text">
+                                <input id="street" name="street" type="text">
                             </label>
                             <div class="button"><button>Update</button></div>
                         </form>

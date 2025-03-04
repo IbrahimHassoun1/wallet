@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         //check password now if id is found
-        if ($storedPass != $pass) {
+        if ($storedPass != password_verify($pass, $storedPass)) {
             http_response_code(401);
             $response["status"] = "error";
             $response["message"] = "Incorrect password";
@@ -108,12 +108,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $result = $conn->query($sql);
 
             if ($result) {
-                // Fetch the row
+
                 $row = $result->fetch_assoc();
                 $response["status"] = "success";
                 $response["message"] = "session created";
                 setcookie("session_id", $row["id"]);
-                $response["session_data"] = $row; // Include the last inserted row data
+                $response["session_data"] = $row;
                 $conn->commit();
                 echo json_encode($response);
             } else {
