@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             http_response_code(500); // Internal Server Error
             throw new Exception("Failed to create a wallet");
         }
-
+        $pass = password_hash($pass, PASSWORD_BCRYPT);
         // Add user
         $sql = "INSERT IGNORE INTO users (first_name, last_name, username, email, phone_number, pass, wallet_id) 
                 VALUES ('$first_name', '$last_name', '$username', '$email', '$phone_number', '$pass', $wallet_id)";
