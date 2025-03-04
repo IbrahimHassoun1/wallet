@@ -1,8 +1,9 @@
 const url="http://localhost/wallet/"
 
-console.log("test")
+
 //check if we're logged in
-window.onload = () => {
+window.addEventListener("load",  () => {
+    
     if(!localStorage.getItem("session_id")){
     const mainPage = document.getElementById("main-page");
 
@@ -14,12 +15,10 @@ window.onload = () => {
     h1.style.color = "white";
     h1.style.margin='auto'
 
-console.log("test")
-
-
+    console.log(localStorage.getItem("session_id"))
 
     mainPage.appendChild(h1);}
-};
+})
 //check if we have to hide verification
 window.onload = () => {
     const session_id = localStorage.getItem("session_id");
