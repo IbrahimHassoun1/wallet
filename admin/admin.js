@@ -9,7 +9,7 @@ window.addEventListener("load",()=>{
         mainPage.innerHTML = "";
         
         const h1 = document.createElement("h1");
-        h1.textContent = "Habibi, you are not logged in";
+        h1.textContent = " you are not logged in";
         mainPage.style.display='flex'
         h1.style.color = "white";
         h1.style.margin='auto'
