@@ -164,8 +164,10 @@ document.getElementById("cards-button").addEventListener("click",()=>{
     .then(response => {
         console.log(response.data.data); 
         const cardsHolder = document.getElementById("cards-holder")
+        cardsHolder.innerHTML=""
         response.data.data.forEach(card=>{
             const newComponent = document.createElement("div")
+            
             newComponent.classList.add("card-component")
             newComponent.innerHTML=` 
                                 <div class="details">
@@ -211,6 +213,30 @@ document.getElementById("cards-button").addEventListener("click",()=>{
 document.getElementById("transactions-button").addEventListener("click",()=>{
     console.log("we're inside transactions")
 })
+document.getElementById("transfer-button").addEventListener("click",()=>{
+    
+
+    axios.post(url+"user/api/?action=getCards",{user_id},{
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    }).then(response=>{
+        
+        const select = document.getElementById("sender_id")
+        select.innerHTML=""
+        console.log(response.data.data)
+        response.data.data.forEach(card=>{
+            const cardComponent=document.createElement('option')
+            cardComponent.value=card.id
+            cardComponent.innerHTML= card.id
+            
+            select.appendChild(cardComponent)
+        })
+    })
+
+    console.log("we're inside transfer")
+})
+
 
 
 

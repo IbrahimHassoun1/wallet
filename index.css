@@ -281,6 +281,7 @@ footer .container ul{
     min-height: calc(100vh );
     height: fit-content;
 }
+
 /*side bar*/
 .main-page .side-bar{
     background-color: var(--tertiary-color);
@@ -289,6 +290,17 @@ footer .container ul{
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
+}
+@media (max-width:950px) {
+    .main-page{
+        flex-direction: column;
+    }
+    .main-page .side-bar{
+        width: 100%;
+    }
+    .show{
+        height: 80vh;
+    }
 }
 .main-page .side-bar ul{
     display: flex;
@@ -639,7 +651,41 @@ footer .container ul{
 .transaction-component:hover{
     background-color: var(--tertiary-color);
 }
-
+/* tansfers */
+.sub-profile-square-transfer{
+    background-color: var(--primary-color);
+    height: 50vh;
+    width: 50%;
+    border-radius: 0.5rem;
+    
+}
+.sub-profile-square-transfer form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.sub-profile-square-transfer form button{
+    background-color: var(--tertiary-color);
+    color: var(--quaternary-color);
+    border-radius: 0.5rem;
+    width: 50%;
+    height: 5vh;
+    border: none;
+    cursor: pointer;
+}
+.sub-profile-square-transfer form button:hover{
+    opacity: 80%;
+}
+.sub-profile-square-transfer form button:focus{
+    opacity: 70%;
+}
+@media (max-width:950px) {
+    .sub-profile-square-transfer{
+        width: 100%;
+    }
+}
 /* support */
 .support .labels:nth-child(1){
     background-color: red;

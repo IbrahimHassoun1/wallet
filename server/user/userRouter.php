@@ -35,6 +35,10 @@ if (isset($_GET['action'])) {
             require './transactionsControllers/transactionRouter.php';
             break;
         }
+        case "transfer": {
+            require './transactionsControllers/transfer.php';
+            break;
+        }
 
     }
 

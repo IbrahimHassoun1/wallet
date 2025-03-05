@@ -42,7 +42,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         if (data.status === "success") {
             newMessage.textContent = "Account created successfully"; 
             newMessage.classList.add('txt-green');
-            window.location.href = url+"user/"
+            // window.location.href = url+"user/"
 
         } else {
             newMessage.textContent = data.message;  

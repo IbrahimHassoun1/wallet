@@ -33,6 +33,7 @@
                 <li onclick="mountComponent(`wallet`)">Wallet info</li>
                 <li id="cards-button" onclick="mountComponent(`cards`)">Cards</li>
                 <li id="transactions-button" onclick="mountComponent(`transactions`)">Transactions</li>
+                <li id="transfer-button"  onclick="mountComponent(`transfer`)">Transfer</li>
                 <li onclick="mountComponent(`support`)">Support</li>
             </ul>
             <button>Logout</button>
@@ -196,6 +197,31 @@
                 </div>
                 
             </div>
+            <div id="transfer" class="section">
+                <div class=" profile container ">
+                    <h1>Transfer Money:</h1>
+                    <div  class="sub-profile-square-transfer">
+                        <form action="">
+                            <label for="sender_id">
+                                Sender Card id:
+                                <select id="sender_id" name="sender_id">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </label>
+                            <label for="receiver_id">
+                                Receiver id:
+                                <input type="text" placeholder="1234" name="receiver_id" id="receiver_id">
+                            </label>
+                            <label for="amount">
+                                Amount:
+                                <input type="text" placeholder="1234" name="amount" id="amount">
+                            </label>
+                            <button >Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div id="support" class="section">
                 <div class=" profile container ">
                     <h1>Support:</h1>
@@ -222,7 +248,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- s -->
         </div>
         <div class="not-icon-holder notifications-detector"  onclick="toggleNotifications(`notifications-detector`)"><i class="fas fa-bell"></i></div>
         
