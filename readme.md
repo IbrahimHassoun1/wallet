@@ -24,6 +24,10 @@ Analytics Dashboard:admins will have access to important analytics such as popul
 # Usage
 launch the project by going to localhost/wallet/
 
+# ER Diagram
+![My Image](/ER.PNG)
+
+
 # API documentation
 
 user APIs are routed to :
@@ -187,6 +191,64 @@ admin APIs are routed to :
         message:"updated successfully",
         
 }}
+### 8-transfer
+**Endpoint**: `localhost/wallet/user/api?action=transfer`
+
+**Method**: `POST`
+
+**Description**: Makes peer to peer transfers .
+**Request**:
+{
+           sender_id:34,
+           receiver_id:346,
+           amount:500
+}
+**Response**:
+- **Status**: `200 OK`
+- **Body**: {
+    data:{
+        message:"transaction added successfully",
+        
+}}
+
+## Admin APIs
+### 1-getCards
+**Endpoint**: `localhost/wallet/admin/api?action=getCards`
+
+**Method**: `GET`
+
+**Description**: makes aggregation for each card type and the amount of row of that type .
+**Request**:
+{
+           
+}
+**Response**:
+- **Status**: `200 OK`
+- **Body**: {
+    data:{
+        debit:5,
+        credit:9
+        
+}}
+### 2-getLocations
+**Endpoint**: `localhost/wallet/admin/api?action=getLocations`
+
+**Method**: `GET`
+
+**Description**: makes aggregation for each country and the amount of row of that country .
+**Request**:
+{
+           
+}
+**Response**:
+- **Status**: `200 OK`
+- **Body**: {
+    data:{
+        Lebanon:5,
+        Canada:9
+        
+}}
+
 
 
 
