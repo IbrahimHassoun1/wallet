@@ -718,7 +718,7 @@ textarea{
     text-align: center;
     margin-bottom: auto;
 }
-.upper-overview .left-upper-overview {
+.upper-overview .left-upper-overview .right-upper-overview {
     display: flex;
 }
 .upper-overview .left-upper-overview canvas{

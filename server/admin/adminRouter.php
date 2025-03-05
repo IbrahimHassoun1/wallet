@@ -6,6 +6,10 @@ if (isset($_GET['action'])) {
             require './analyticsControllers/getCards.php';
             break;
         }
+        case 'getLocations': {
+            require './analyticsControllers/getLocations.php';
+            break;
+        }
 
 
     }

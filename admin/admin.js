@@ -4,15 +4,16 @@ const url="http://localhost/wallet/"
 console.log("test")
 //left-up
 document.getElementById("overview-button").addEventListener("click",()=>{
-    const colors=['#10a4ca','#feffff',"#ff7f11","#ff6b6b","Purple"]
-    const data=[]
-    const labels=[]
+    
+    
     //get stats
     
     //drawing upper-left
     axios.get(url+"admin/api/?action=getCards")
     .then(response=>{
-        
+        const colors=['#10a4ca','#feffff',"#ff7f11","#ff6b6b","Purple"]
+        const data=[]
+        const labels=[]
         response.data.data.forEach(row=>{
             data.push(row.total)
             labels.push(row.card_type)
@@ -33,7 +34,58 @@ document.getElementById("overview-button").addEventListener("click",()=>{
     })
     
     //drawing upper-right
-    
+    axios.get(url+"admin/api/?action=getLocations")
+    .then(response=>{
+        const colors=['#10a4ca','#feffff',"#ff7f11","#ff6b6b","Purple"]
+        const countries=[]
+        
+        const data=[]
+        const labels=[]
+        response.data.data.forEach(row=>{
+            data.push(row.total)
+            countries.push(row.country)
+            
+        })
+        console.log(data,countries)
+        const myCanva = document.getElementById("right-upper-chart")
+
+        //charts made by chatgpt
+        new Chart(myCanva, {
+        type: 'bar', 
+        data: {
+            labels: countries, 
+            datasets: [{
+                label: "Users",
+                data: data, 
+                backgroundColor: colors, 
+                
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#feffff'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#feffff' 
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#feffff' 
+                    }
+                }
+            }
+        }
+    });
+    })
     
 
     
