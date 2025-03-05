@@ -9,6 +9,12 @@ RewriteRule ^user/?$ /wallet/user/user.html [L]
 # Route /wallet/admin to /wallet/admin/admin.html
 RewriteRule ^admin/?$ /wallet/admin/admin.html [L]
 
+
+#api routes
+
 # Route all user requests to userRouter.php 
 RewriteRule ^user/api/(.*)$ /wallet/server/user/userRouter.php?action=$1 [L,QSA]
+
+# Route all admin requests to userRouter.php 
+RewriteRule ^admin/api/(.*)$ /wallet/server/admin/adminRouter.php?action=$1 [L,QSA]
 
