@@ -232,11 +232,38 @@ document.getElementById("transfer-button").addEventListener("click",()=>{
             
             select.appendChild(cardComponent)
         })
+
+
     })
+    
 
     console.log("we're inside transfer")
 })
+const makeTransfer = function(e){
+    e.preventDefault()
+    const formElemet = document.getElementById("transfer-form")
+    
+    const formData = new FormData(formElemet);  
+    const data = {};
+    
+    formData.forEach((value, key) => {
+        data[key] = value
+    });
+    console.log(data)
 
+    axios.post(url+"user/api/?action=transfer",data,{
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    }).then(response=>{
+        console.log(response)
+        const msg = document.createElement("h1")
+        msg.innerHTML=response.data.message
+
+        formElemet.appendChild(msg)
+    })
+
+}
 
 
 
