@@ -2,6 +2,12 @@
 
 This is a digital wallet designed and built for high security transfers and online payments.
 
+# GITHUB PAGES
+In order to check all 3 pages on github pages:
+home page:https://ibrahimhassoun1.github.io/wallet/
+user page:https://ibrahimhassoun1.github.io/wallet/user/user.html
+admin page:https://ibrahimhassoun1.github.io/wallet/admin/admin.html
+
 # Key Features
 Account Creation: user can create his own account using either his email or his phone number .
 Profile Management: user can edit his personal details after creating his account .
