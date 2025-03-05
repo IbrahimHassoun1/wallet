@@ -100,6 +100,10 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         formdata.delete("identifier")
         formdata.append("email",identifier)
     }
+    if(isPhone(identifier)){
+        formdata.delete("identifier")
+        formdata.append("phone_number",identifier)
+    }
     console.log("After:", Array.from(formdata.entries()));
     
 
@@ -111,7 +115,7 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         
         return;
     }
-    //send request
+    
     fetch("http://localhost/wallet/user/api/?action=login", {
         method: "POST",
         body: formdata
@@ -126,11 +130,17 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         newMessage.style.fontWeight = '100'
 
         if (data.status === "success") {
-            newMessage.textContent = "Account created successfully"; 
+            newMessage.textContent = "login successful"; 
             newMessage.classList.add('txt-green') 
             console.log("login successful")
             localStorage.setItem("session_id",data.session_data.id)
-            window.location.href = url+"user/"
+            console.log("identifier: "+identifier)
+            if(identifier=="admin@gmail.com"){
+                window.location.href = url+"admin/"
+            }else{
+                window.location.href = url+"user/"
+            }
+            
             
             
         } else {
@@ -138,12 +148,12 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
             newMessage.classList.add('txt-red');  
             console.log("failed to login")
         }
-
-        this.appendChild(newMessage);  // Append the new message after the form
+        const loginForm = document.getElementById("loginForm")
+        loginForm.appendChild(newMessage);  
     })
     .catch(error => {
         console.error("Error:", error);  
-        // If there's an error, remove the "Please wait" message and display the error
+        
         appended.remove();
 
         const errorMessage = document.createElement("h4");
@@ -151,11 +161,11 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         errorMessage.classList.add('txt-red'); 
         errorMessage.style.textAlign = 'center';
         errorMessage.style.fontWeight = '100';
-        this.appendChild(errorMessage);  // Append the error message
+        this.appendChild(errorMessage);  
     });
     
 
-    form.appendChild(appended);  // Append message after the form
+    form.appendChild(appended);  
 });
 
 const mountComponent=(componentId)=>{

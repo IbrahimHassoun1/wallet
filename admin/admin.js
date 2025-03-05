@@ -1,5 +1,24 @@
 const url="http://localhost/wallet/"
 
+window.addEventListener("load",()=>{
+    const key = localStorage.getItem("session_id")
+   
+    if(!localStorage.getItem("session_id")){
+        const mainPage = document.getElementById("admin-page");
+    
+        mainPage.innerHTML = "";
+        
+        const h1 = document.createElement("h1");
+        h1.textContent = "Habibi, you are not logged in";
+        mainPage.style.display='flex'
+        h1.style.color = "white";
+        h1.style.margin='auto'
+    
+        console.log(localStorage.getItem("session_id"))
+    
+        mainPage.appendChild(h1);}
+})
+
 //creating charts
 console.log("test")
 //left-up

@@ -7,6 +7,15 @@ if ($continue) {
         $sql = "INSERT IGNORE INTO addresses (country, city, street) 
                             VALUES ('Lebanon', 'Beirut', 'Bshara el khoury')";
         $conn->query($sql);
+        $sql = "INSERT IGNORE INTO addresses (country, city, street) 
+                            VALUES ('Lebanon', 'Tripoli', 'Mina')";
+        $conn->query($sql);
+        $sql = "INSERT IGNORE INTO addresses (country, city, street) 
+                            VALUES ('Canada', 'Vancouver', 'Example')";
+        $conn->query($sql);
+        $sql = "INSERT IGNORE INTO addresses (country, city, street) 
+                            VALUES ('KSA', 'Riyadh', 'King Fahad')";
+        $conn->query($sql);
         echo "address seed added successfully||\n";
         $conn->commit();
         //creating wallets seed
@@ -18,6 +27,9 @@ if ($continue) {
         //creating user seed
         $sql = "INSERT IGNORE INTO users (first_name, last_name, username, email, pass,address_id,wallet_id) 
                                     VALUES ('ibrahim', 'hassoun', 'bob123', 'ihassoun73@gmail.com', 'passExample',1,1)";
+        $conn->query($sql);
+        $sql = "INSERT IGNORE INTO users (first_name, last_name, username, email, pass,address_id,wallet_id,user_type) 
+                                    VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', '$2y$10\$fY4XK5Xb36SC9ft1PqqJ2eCzFeuxShDQ5vtQG5uu92HfyOnNLnxwC',1,1,'admin')";
         $conn->query($sql);
         echo "user seed added successfully||\n";
         $conn->commit();
