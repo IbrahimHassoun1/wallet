@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
     <div class="main-page">
         <div class="side-bar">
             <ul>
-                <li onclick="mountComponent(`overview`)">Overview</li>
+                <li id="overview-button" onclick="mountComponent(`overview`)">Overview</li>
                 <li onclick="mountComponent(`analytics`)">Analytics</li>
                 <li onclick="mountComponent(`verification`)">Verifications</li>
                 <li onclick="mountComponent(`support`)">Support</li>
@@ -23,9 +24,9 @@
             <div class="container adminContainer">
                 <div id="overview" class="section overview">
                     <div class="upper-overview">
-                        <div class="left-upper-overview">
+                        <div id="left-upper-overview" class="left-upper-overview">
                             <h1>Cards types</h1>
-                            <div>graph</div>
+                            <canvas id="left-upper-chart"></canvas>
                         </div>
                         <div class="right-upper-overview">
                             <h1>locations</h1>

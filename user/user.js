@@ -208,6 +208,9 @@ document.getElementById("cards-button").addEventListener("click",()=>{
     });
 })
 
+document.getElementById("transactions-button").addEventListener("click",()=>{
+    console.log("we're inside transactions")
+})
 
 
 
