@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     $sql = "SELECT card_type,count(*) as total
             FROM    cards
-            GROUP BY card_type";
+            GROUP BY card_type
+            LIMIT 5";
     $response['message'] = 'after sql';
     if ($result = $conn->query($sql)) {
         $rows = [];

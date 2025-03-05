@@ -718,6 +718,12 @@ textarea{
     text-align: center;
     margin-bottom: auto;
 }
+.upper-overview .left-upper-overview {
+    display: flex;
+}
+.upper-overview .left-upper-overview canvas{
+    margin: auto;
+}
 .lower-overview{
    display: flex;
    flex-direction: column;

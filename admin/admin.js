@@ -1,18 +1,42 @@
+const url="http://localhost/wallet/"
+
 //creating charts
 console.log("test")
 //left-up
 document.getElementById("overview-button").addEventListener("click",()=>{
-    const myCanva = document.getElementById("left-upper-chart")
-    new Chart(myCanva, {
-        type: 'pie', 
-        data: {
-            labels: ['Red', 'Blue', 'Yellow'], 
-            datasets: [{
-                data: [30, 50, 20], 
-                backgroundColor: ['red', 'blue', 'yellow'] 
-            }]
-        }
+    const colors=['#10a4ca','#feffff',"#ff7f11","#ff6b6b","Purple"]
+    const data=[]
+    const labels=[]
+    //get stats
+    
+    //drawing upper-left
+    axios.get(url+"admin/api/?action=getCards")
+    .then(response=>{
+        
+        response.data.data.forEach(row=>{
+            data.push(row.total)
+            labels.push(row.card_type)
+           
+        })
+        
+        const myCanva = document.getElementById("left-upper-chart")
+        new Chart(myCanva, {
+            type: 'pie', 
+            data: {
+                labels: [...labels], 
+                datasets: [{
+                    data: [...data], 
+                    backgroundColor: colors
+                }]
+            }
+        })
     })
+    
+    //drawing upper-right
+    
+    
+
+    
 })
 const mountComponent=(componentId)=>{
     //hides all sections first
