@@ -1,4 +1,4 @@
-const url="http://localhost/wallet/"
+const url="ec2-51-44-85-143.eu-west-3.compute.amazonaws.com/wallet/"
 
 
 const logout =function(e){
