@@ -8,6 +8,9 @@ home page:https://ibrahimhassoun1.github.io/wallet/
 user page:https://ibrahimhassoun1.github.io/wallet/user/user.html
 admin page:https://ibrahimhassoun1.github.io/wallet/admin/admin.html
 
+# EC2 Deployment
+http://ec2-51-44-85-143.eu-west-3.compute.amazonaws.com/wallet/
+
 # Key Features
 Account Creation: user can create his own account using either his email or his phone number .
 Profile Management: user can edit his personal details after creating his account .
