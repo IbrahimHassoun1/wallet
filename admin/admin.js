@@ -1,5 +1,12 @@
 const url="http://localhost/wallet/"
 
+
+const logout =function(e){
+    e.preventDefault();
+    localStorage.removeItem("session_id")
+    window.location.href = url
+}
+
 window.addEventListener("load",()=>{
     const key = localStorage.getItem("session_id")
    
@@ -129,6 +136,7 @@ window.onload(document.querySelectorAll(".section").forEach(section=>{
     section.classList.remove("show")
     section.classList.remove("showAdmin")
 }))
+
 
 
 

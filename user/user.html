@@ -30,13 +30,13 @@
         <div id="side-bar" class="side-bar">
             <ul>
                 <li id="profile-button" onclick="mountComponent(`profile`)">Profile info</li>
-                <li onclick="mountComponent(`wallet`)">Wallet info</li>
+                <li id="wallet-button" onclick="mountComponent(`wallet`)" >Wallet info</li>
                 <li id="cards-button" onclick="mountComponent(`cards`)">Cards</li>
                 <li id="transactions-button" onclick="mountComponent(`transactions`)">Transactions</li>
                 <li id="transfer-button"  onclick="mountComponent(`transfer`)">Transfer</li>
                 <li onclick="mountComponent(`support`)">Support</li>
             </ul>
-            <button>Logout</button>
+            <button onclick="logout(event)">Logout</button>
         </div>
         <div id="content-section" class="content-section">
             <div id='to-do-list' class='container to-do-list'>
@@ -105,16 +105,38 @@
 
                         <form class="labels" onsubmit="">
                             
-                            <label for="createdAt">
-                                Created at:
-                                <p>30/12/2024</p>
+                            <label for="num_of_cards">
+                                Number of cards:
+                                <p id="num_of_cards">5</p>
                             </label>
-                            <label for="modfifiedAt">
-                                last modified
-                                <p>30/12/2024</p>
+                            <label  for="currency">
+                                Currency:
+                                <p id="currency">Dollar</p>
                             </label>
+                            <label for="total_balance">
+                                Total balance:
+                                <p id="total_balance">1200</p>
+                            </label>
+
+                            <label for="brand">
+                                Brand
+                                <select name="brand" id="brand">
+                                    <option value="master">Master Card</option>
+                                    <option value="visa">Visa Card</option>
+                                </select>
+                            </label>
+                            <label for="type">
+                                Type
+                                <select name="type" id="type">
+                                    <option value="debit">Debit</option>
+                                    <option value="credit">Credit</option>
+                                </select>
+                            </label>
+                        
                             
-                            <div class="button"><button>Update</button></div>
+                            
+
+                            <div class="button"><button>Add new card</button></div>
                         </form>
                         
                     </div>

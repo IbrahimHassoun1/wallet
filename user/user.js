@@ -264,6 +264,24 @@ const makeTransfer = function(e){
     })
 
 }
+const logout =function(e){
+    e.preventDefault();
+    localStorage.removeItem("session_id")
+    window.location.href = url
+}
+document.getElementById("wallet-button").addEventListener("click",()=>{
+    axios.post(url+"user/api/?action=getWalletInfo",{user_id},{
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    }).then(response=>{
+        console.log(response)
+        console.log(response.data.currency)
+        document.getElementById("total_balance").innerHTML=response.data.total_balance
+        document.getElementById("currency").innerHTML=response.data.currency
+        document.getElementById("num_of_cards").innerHTML=response.data.total_cards
+    })
+})
 
 
 
