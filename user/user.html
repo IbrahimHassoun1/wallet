@@ -42,12 +42,10 @@
             <div id='to-do-list' class='container to-do-list'>
                 <div id="is_verified" class="task flex">
                     <h1>Verify your account</h1>
+                    <h1>Upload Your ID</h1>
                     <button>Verify</button>
                 </div>
-                <div id="add_card" class="task">
-                    <h1>Add Your First Card</h1>
-                    <button>Add</button>
-                </div>
+            
             </div>
             <div id="profile" class="section">
                 <div class=" profile container ">
@@ -103,7 +101,7 @@
                     <h1>Wallet Details:</h1>
                     <div  class="sub-profile-square">
 
-                        <form class="labels" onsubmit="">
+                        <form class="labels" onsubmit="addCard(event)" id="add-card-form">
                             
                             <label for="num_of_cards">
                                 Number of cards:
