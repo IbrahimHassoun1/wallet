@@ -25,9 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
             $wallet_id = $row["wallet_id"];
-            $stmt->close(); // Close statement before new query
+            $response['wallet_id'] = $wallet_id;
+            $stmt->close();
 
-            // Get wallet details
+
             $sql = "SELECT currency, total_balance FROM wallets WHERE id=?";
             $stmt = $conn->prepare($sql);
             if ($stmt) {
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->close();
             }
 
-            // Count total cards (fixing incorrect WHERE clause)
+
             $sql = "SELECT COUNT(*) AS total_cards FROM cards WHERE wallet_id=?";
             $stmt = $conn->prepare($sql);
             if ($stmt) {

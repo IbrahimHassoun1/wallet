@@ -26,6 +26,10 @@ if (isset($_GET['action'])) {
             require './actionsControllers/getCards.php';
             break;
         }
+        case "addCard": {
+            require './actionsControllers/addCard.php';
+            break;
+        }
         case "getWalletInfo": {
             require './actionsControllers/getWalletInfo.php';
             break;

@@ -269,6 +269,7 @@ const logout =function(e){
     localStorage.removeItem("session_id")
     window.location.href = url
 }
+var wallet_id ;
 document.getElementById("wallet-button").addEventListener("click",()=>{
     axios.post(url+"user/api/?action=getWalletInfo",{user_id},{
         headers: {
@@ -276,12 +277,39 @@ document.getElementById("wallet-button").addEventListener("click",()=>{
         }
     }).then(response=>{
         console.log(response)
-        console.log(response.data.currency)
+        console.log(response.data.wallet_id)
+        wallet_id=response.data.wallet_id
         document.getElementById("total_balance").innerHTML=response.data.total_balance
         document.getElementById("currency").innerHTML=response.data.currency
         document.getElementById("num_of_cards").innerHTML=response.data.total_cards
     })
 })
 
+const addCard = function(event){
+    event.preventDefault()
+    const form = document.getElementById("add-card-form")
+    const formData = new FormData(form);  
+    const data = {};
+    
+    formData.forEach((value, key) => {
+        data[key] = value
+    });
+    data.id=user_id;
+    data.wallet_id=wallet_id
+    const jsonData = JSON.stringify(data)
+
+    console.log(jsonData);
+    axios.post(url + "/user/api/?action=addCard", jsonData, {
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    })
+    .then(response => {
+        console.log(response); 
+    })
+    .catch(error => {
+        console.error(error); 
+    });
+}
 
 

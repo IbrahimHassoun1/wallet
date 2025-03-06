@@ -297,6 +297,7 @@ footer .container ul{
     }
     .main-page .side-bar{
         width: 100%;
+        height: 100vh;
     }
     .show{
         height: 80vh;
@@ -789,7 +790,16 @@ textarea{
     margin-bottom: auto;
 }
 
-
+@media (max-width:950px) {
+    .upper-overview{
+        flex-direction: column;
+        height: 100%;
+        gap: 5vh;
+    }
+    .upper-overview>*{
+        width: 100%;
+    }
+}
 
 /* analytics */
 .analytics{
